@@ -26,9 +26,9 @@ const ProductsTable = (props) => {
                 <tr key={idx}>
                   <th scope="row">{idx+1}</th>
                   <td>{product.name}</td>
-                  <td>{product.count}</td>
+                  <td><span className={props.highlightClass}>{product.count}</span></td>
                   <td>
-                    {product.price}
+                    <span className={props.highlightClass}>{product.price}</span>
                     <span className="products-table__edit-icons">
                       <span onClick={() => {props.updateProduct(idx)}}><i className="products-table__icon products-table__icon--update far fa-edit"></i></span>
                       <span onClick={() => {props.deleteProduct(idx)}}><i className="products-table__icon products-table__icon--trash fas fa-trash-alt"></i></span>

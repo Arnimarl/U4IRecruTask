@@ -8,7 +8,8 @@ class App extends Component {
     super(props);
     this.state = {
       products,
-      timer: 0
+      timer: 0,
+      highlightAreasToRandomize: false
     }
   }
 
@@ -90,6 +91,16 @@ class App extends Component {
     this.runTimer();
   }
 
+  highlightAreasToRandomize = () => {
+    this.setState({ highlightAreasToRandomize: true });
+  }
+
+  turnOffHighlightedAreasToRandomize = () => {
+    this.setState({ highlightAreasToRandomize: false });
+  }
+
+  highlightClass = () => { return this.state.highlightAreasToRandomize ? 'highlight-for-random' : ''  };
+
   render() { 
     return (
       <div className='app'>
@@ -98,12 +109,18 @@ class App extends Component {
             products={this.state.products} 
             deleteProduct={this.deleteProduct} 
             updateProduct={this.updateProduct}
-            addRandomProduct={this.addRandomProduct}>
+            addRandomProduct={this.addRandomProduct}
+            highlightClass={this.highlightClass()}>
           </ProductsTable>
-          <div>Total count: {this.getTotalCount(this.state.products)}</div>
-          <div>Average price: {this.getAveragePrice(this.state.products)}</div>
+          <div>Total count: <span className={this.highlightClass()}>{this.getTotalCount(this.state.products)}</span></div>
+          <div>Average price: <span className={this.highlightClass()}>{this.getAveragePrice(this.state.products)}</span></div>
           <div className="app-randomize">
-            <button type="button" className="btn btn-outline-light btn-sm" onClick={this.randomizeValues}>Randomize values</button>
+            <button type="button" 
+            className="btn btn-outline-light btn-sm" 
+            onClick={this.randomizeValues} 
+            onMouseEnter={this.highlightAreasToRandomize}
+            onMouseLeave={this.turnOffHighlightedAreasToRandomize}>Randomize values
+          </button>
           </div>
           <div>Timer: {this.state.timer}</div>
         </div>

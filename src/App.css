@@ -14,6 +14,11 @@ body {
   margin-bottom: 20px;
 }
 
+.highlight-for-random {
+  transform: 0.25s all;
+  color: orange;
+}
+
 .space-left {
   margin-left: 10px;
 }
