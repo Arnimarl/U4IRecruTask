@@ -94,14 +94,18 @@ class App extends Component {
     return (
       <div className='app'>
         <div className="container">
-          <ProductsTable products={this.state.products} deleteProduct={this.deleteProduct} updateProduct={this.updateProduct}></ProductsTable>
+          <ProductsTable 
+            products={this.state.products} 
+            deleteProduct={this.deleteProduct} 
+            updateProduct={this.updateProduct}
+            addRandomProduct={this.addRandomProduct}>
+          </ProductsTable>
           <div>Total count: {this.getTotalCount(this.state.products)}</div>
           <div>Average price: {this.getAveragePrice(this.state.products)}</div>
           <div className="app-randomize">
             <button type="button" className="btn btn-outline-light btn-sm" onClick={this.randomizeValues}>Randomize values</button>
-            <button type="button" className="btn btn-outline-light btn-sm space-left" onClick={this.addRandomProduct}>Add new</button>
           </div>
-          <div className="">Timer: {this.state.timer}</div>
+          <div>Timer: {this.state.timer}</div>
         </div>
       </div>
     );

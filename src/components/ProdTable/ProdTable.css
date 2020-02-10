@@ -1,0 +1,75 @@
+.products-table {
+  position: relative;
+  margin-bottom: 50px;
+}
+
+.products-table .table {
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+
+.products-table .products-table__icon  {
+  margin-right: 10px;
+  cursor: pointer;
+  transition: 0.2s all;
+}
+
+.products-table .products-table__icon--trash:hover {
+  color: #dc3545;
+}
+
+.products-table td {
+  position: relative;
+}
+
+.products-table .products-table__icon--update:hover {
+  color: #007bff;
+}
+
+.products-table tr .products-table__edit-icons {
+  position: absolute;
+  right: -10px;
+  top: 3px;
+  opacity: 0;
+  transition: 0.3s all;
+}
+
+.products-table tr:hover .products-table__edit-icons {
+  right: 0;
+  opacity: 1;
+}
+
+.products-table .products-table__add {
+  position: absolute;
+  right: -15px;
+  bottom: -22px;
+  font-size: 25px;
+  opacity: 0;
+  transition: 0.3s all;
+}
+
+.products-table:hover .products-table__add {
+  opacity: 1;
+}
+
+.products-table .products-table__add:hover {
+  color: #28a745;
+  cursor: pointer;
+}
+
+.products-table .products-table__next-row {
+  position: absolute;
+  width: 100%;
+  height: 33px;
+  box-sizing: border-box;
+  border: 1px dashed #28a745;
+  opacity: 0;
+  bottom: -28px;
+  pointer-events: none;
+  transition: 0.25s all;
+}
+
+.products-table .products-table__add:hover + .products-table__next-row {
+  opacity: 1;
+  bottom: -33px;
+}
